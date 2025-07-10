@@ -2,22 +2,22 @@ package com.bean;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-//import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Flights {
+public class Flight {
 
 	@Id
 	private String flightId;
 	@ManyToOne
-//	@JoinColumn(name="city")
+	@JoinColumn(name="sourceCity")
 	private City sourceCity;
 	@ManyToOne
-//	@JoinColumn(name="city")
+	@JoinColumn(name="destinationCity")
 	private City destinationCity;
 	@ManyToOne
-//	@JoinColumn(name="airline")
+	@JoinColumn(name="airline")
 	private Airline airline;
 	private float price;
 	

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>All City | Admin | FlyAway</title>
+
+<style>
+	table {
+		border:1.5px solid;
+	}
+	
+	td {
+		border:1px solid;
+		text-align:center;
+		padding:5px;
+	}
+</style>
+
+</head>
+<body>
+
+	<h3>All City</h3>
+	<br/>
+	
+	<p th:if="${error}" th:text="${error}" style="color:red"></p>
+	
+	<table>
+		<thead>
+			<tr>
+				<td>City Name</td>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="c : ${city}">
+				<td th:text="${c.city}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br/>
+	<br/>
+	<a href="/admin/dashboard">Back</a>
+
+
+</body>
+</html>

@@ -7,13 +7,13 @@ import jakarta.persistence.Id;
 public class Airline {
 
 	@Id
-	private String airliine;
+	private String airline;
 
-	public String getAirliine() {
-		return airliine;
+	public String getAirline() {
+		return airline;
 	}
 
-	public void setAirliine(String airliine) {
-		this.airliine = airliine;
+	public void setAirline(String airline) {
+		this.airline = airline;
 	}
 }

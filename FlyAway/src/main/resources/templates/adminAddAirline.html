@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Airline | Admin | Flyaway</title>
+</head>
+<body>
+
+<h3>Add New Airline</h3>
+	
+	<p th:if="${error}" th:text="${error}" style="color:red"></p>
+	<p th:if="${msg}" th:text="${msg}" style="color:green"></p>
+	
+	<form action="/admin/addAirline" method="post">
+		<label>Airline Name:</label>
+		<input type="text" name="airline" required><br/><br/>
+		
+		<input type="submit" value="Add Airline" name=addAirline>
+		<input type="reset" value="Reset" name="reset">
+	</form>
+	
+	<br/>
+	<br/>
+	<a href="/admin/dashboard">Back</a>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Flight | Admin | Flyaway</title>
+</head>
+<body>
+
+<h3>Add New Flight</h3>
+	
+	<p th:if="${error}" th:text="${error}" style="color:red"></p>
+	<p th:if="${msg}" th:text="${msg}" style="color:green"></p>
+	
+	<form action="/admin/addFlight" method="post">
+		<label>Flight ID:</label>
+		<input type="text" name="flightId" required><br/><br/>
+		
+		<label>Source City:</label>
+			<select name="sourceCity" required>
+				<option value="" disabled selected>--Select--</option>
+				<option th:each="c : ${city}" th:value="${c.city}" th:text="${c.city}"></option>
+			</select><br/><br/>
+			
+		<label>Destination City:</label>
+			<select name="destinationCity" required>
+				<option value="" disabled selected>--Select--</option>
+				<option th:each="c : ${city}" th:value="${c.city}" th:text="${c.city}"></option>
+			</select><br/><br/>
+			
+		<label>Airline:</label>
+			<select name="airline" required>
+				<option value="" disabled selected>--Select--</option>
+				<option th:each="aline : ${airline}" th:value="${aline.airline}" th:text="${aline.airline}"></option>
+			</select><br/><br/>
+			
+		<label>Price:</label>
+		<input type="number" name="price" required><br/><br/>
+		
+		<input type="submit" value="Add Flight" name=addFlight>
+		<input type="reset" value="Reset" name="reset">
+	</form>
+	
+	<br/>
+	<br/>
+	<a href="/admin/dashboard">Back</a>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>All Flight | Admin | FlyAway</title>
+
+<style>
+	table {
+		border:1.5px solid;
+	}
+	
+	td {
+		border:1px solid;
+		text-align:center;
+		padding:5px;
+	}
+</style>
+
+</head>
+<body>
+
+	<h3>All Flight</h3>
+	<br/>
+	
+	<p th:if="${error}" th:text="${error}" style="color:red"></p>
+	
+	<table>
+		<thead>
+			<tr>
+				<td>Flight ID</td>
+				<td>Airline</td>
+				<td>Source City</td>
+				<td>Destination City</td>
+				<td>Price</td>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="flgt : ${flight}">
+				<td th:text="${flgt.flightId}"></td>
+				<td th:text="${flgt.airline.airline}"></td>
+				<td th:text="${flgt.sourceCity.city}"></td>
+				<td th:text="${flgt.destinationCity.city}"></td>
+				<td th:text="${flgt.price}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br/>
+	<br/>
+	<a href="/admin/dashboard">Back</a>
+
+
+</body>
+</html>

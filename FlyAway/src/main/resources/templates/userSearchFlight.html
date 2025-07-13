@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User | Search Flight | FlyAway</title>
+</head>
+<body>
+	<h2>Search Flight</h2>
+	<br/>
+
+	<p th:if="${error}" th:text="${error}" style="color:red"></p>
+	<p th:if="${msg}" th:text="${msg}" style="color:green"></p>
+	
+	<form action="/user/searchFlight" method="post">
+		<label>Source City:</label>
+			<select name="sourceCity" required>
+				<option value="" disabled selected>--Select--</option>
+				<option th:each="c : ${city}" th:value="${c.city}" th:text="${c.city}"></option>
+			</select><br/><br/>
+			
+		<label>Destination City:</label>
+			<select name="destinationCity" required>
+				<option value="" disabled selected>--Select--</option>
+				<option th:each="c : ${city}" th:value="${c.city}" th:text="${c.city}"></option>
+			</select><br/><br/>
+			
+		<label>Date of Travel</label>
+			<input type="date" name="dateOfTravel" required/><br/><br/>
+			
+		<label>Number of Passengers</label>
+		<input type="number" name="numberOfPassengers" required><br/><br/>
+		
+		<input type="submit" value="Search Flight" name=searchFlight>
+		<input type="reset" value="Reset" name="reset">
+	</form>
+	
+	<br/>
+	<br/>
+	<a href="/">Back</a>
+	
+	
+</body>
+</html>

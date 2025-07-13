@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Booking Review | FlyAway</title>
+</head>
+<body>
+	<h2>Review your Booking Details</h2>
+	<br/>
+	
+	<ul>
+        <li><strong>Name:</strong> <span th:text="${bookingData.name}"></span></li>
+        <li><strong>Email:</strong> <span th:text="${bookingData.email}"></span></li>
+        <li><strong>Contact Number:</strong> <span th:text="${bookingData.contactNumber}"></span></li>
+        
+        <li><strong>Flight Number:</strong> <span th:text="${bookingData.selectedFlight.flightId}"></span></li>
+        <li><strong>From:</strong> <span th:text="${bookingData.sourceCity?.city}"></span></li>
+        <li><strong>To:</strong> <span th:text="${bookingData.destinationCity?.city}"></span></li>
+        
+        <li><strong>Airline:</strong> <span th:text="${bookingData.selectedFlight.airline}"></span></li>
+        <li><strong>Date of Travel:</strong> <span th:text="${bookingData.dateOfTravel}"></span></li>
+        <li><strong>Number of Passengers:</strong> <span th:text="${bookingData.numberOfPassengers}"></span></li>
+        <li><strong>Total Cost:</strong> <span th:text="${bookingData.selectedFlight.price * bookingData.numberOfPassengers}"></span></li>
+    </ul>
+	
+	<br/>
+	<a href="/user/paymentDetails">Proceed to Payment</a>
+	<br/>
+	<br/>
+	<a href="/user/searchFlight">Back to Search Flight</a>
+	
+	
+</body>
+</html>
